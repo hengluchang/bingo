@@ -23,35 +23,65 @@ function shuffle(array) {
   return array;
 }
 
+var map = new Map();
+
+map.set(1, "images/76ers.png");
+map.set(2, "images/blazers.png");
+map.set(3, "images/bucks.png");
+map.set(4, "images/cavaliers.png");
+map.set(5, "images/celtics.png");
+map.set(6, "images/clippers.png");
+map.set(7, "images/grizzles.png");
+map.set(8, "images/hawks.png");
+map.set(9, "images/heat.png");
+map.set(10, "images/hornets.png");
+map.set(11, "images/knicks.png");
+map.set(12, "images/lakers.png");
+map.set(13, "images/magic.png");
+map.set(14, "images/mavs.png");
+map.set(15, "images/nets.png");
+map.set(16, "images/nuggets.png");
+map.set(17, "images/pacers.png");
+map.set(18, "images/pelicans.png");
+map.set(19, "images/pistons.png");
+map.set(20, "images/rockets.png");
+map.set(21, "images/suns.png");
+map.set(22, "images/thunder.png");
+map.set(23, "images/timberwolves.png");
+map.set(24, "images/warriors.png");
+map.set(25, "images/bulls.png");
+
 function Square(props){
-      return (<td>{props.value}</td>
-      );
+      const image = map.get(props.value);
+      return (<td><img src={image} width="200" height="200"></img></td>);
     }
   
   
 class Board extends React.Component {
     constructor(props) {
         super(props);
+        var squares = [];
+        for (var i = 1; i <= 25; i++) {
+          squares.push(i);
+        }
+        shuffle(squares)
         this.state = {
-            squares: Array(25).fill(null),
+            squares: squares
         };
     }
 
     handleClick = () => {
-      console.log("inside handleclick")
       const squares = this.state.squares.slice();
-      var i;
-      for (i = 0; i < 25; i++) {
-          squares[i] = i;
-      }
       shuffle(squares)
+      console.log("after shuffle: " + squares)
+
       this.setState(
         {squares: squares}
       );
     }
 
     renderButton = () => {
-      return <button onClick={this.handleClick}>Shuffle numbers!</button>
+      return <button onClick={this.handleClick}>Shuffle images!</button>
     }
 
     renderSquare(i) {
