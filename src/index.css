@@ -23,7 +23,7 @@ table, th, td {
 }
 
 button {
-  margin-left: 1000px;
+  margin-left: 500px;
   display: block;
 }
 
@@ -32,20 +32,28 @@ button {
 } */
 
 /* Container needed to position the overlay. Adjust the width as needed */
-/* .container {
+.container {
   position: relative;
-  width: 50%;
+  width: 100%;
   max-width: 300px;
-} */
+}
 
 /* Make the image to responsive */
-/* .image {
+.image {
   display: block;
   width: 100%;
   height: auto;
-} */
+}
 
 /* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  font-size: 40px;
+  text-align: center;
+  width: 50%;
+}
+
 /* .overlay {
   position: absolute;
   bottom: 0;
@@ -56,7 +64,7 @@ button {
   transition: .5s ease;
   opacity:0;
   color: white;
-  font-size: 20px;
+  font-size: 40px;
   padding: 20px;
   text-align: center;
 } */

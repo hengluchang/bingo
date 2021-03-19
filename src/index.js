@@ -103,7 +103,7 @@ class Square extends React.Component {
   }
 
   render() {
-    return (<td><div class="container"><img src={map.get(this.props.value)} onClick={this.imageClick} width="80" height="80"></img>
+    return (<td><div class="container"><img class="image" src={map.get(this.props.value)} onClick={this.imageClick} width="80" height="80"></img>
     <div class="overlay">{this.state.mark}</div></div></td>);
   }
 }
