@@ -1,8 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import img_1 from './images/blazers.png';
+import img_2 from './images/bucks.png';
+import img_3 from './images/cavaliers.png';
+import img_4 from './images/celtics.png';
+import img_5 from './images/clippers.png';
+import img_6 from './images/grizzles.png';
+import img_7 from './images/hawks.png';
+import img_8 from './images/heat.png';
+import img_9 from './images/hornets.png';
+import img_10 from './images/knicks.png';
+import img_11 from './images/lakers.png';
+import img_12 from './images/magic.png';
+import img_13 from './images/mavs.png';
+import img_14 from './images/nets.png';
+import img_15 from './images/nuggets.png';
+import img_16 from './images/pacers.png';
+import img_17 from './images/pelicans.png';
+import img_18 from './images/pistons.png';
+import img_19 from './images/rockets.png';
+import img_20 from './images/suns.png';
+import img_21 from './images/thunder.png';
+import img_22 from './images/timberwolves.png';
+import img_23 from './images/warriors.png';
+import img_24 from './images/bulls.png';
+import img_25 from './images/76ers.png';
+import logo from './images/logo192.png';
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -25,36 +51,40 @@ function shuffle(array) {
 
 var map = new Map();
 
-map.set(1, "images/76ers.png");
-map.set(2, "images/blazers.png");
-map.set(3, "images/bucks.png");
-map.set(4, "images/cavaliers.png");
-map.set(5, "images/celtics.png");
-map.set(6, "images/clippers.png");
-map.set(7, "images/grizzles.png");
-map.set(8, "images/hawks.png");
-map.set(9, "images/heat.png");
-map.set(10, "images/hornets.png");
-map.set(11, "images/knicks.png");
-map.set(12, "images/lakers.png");
-map.set(13, "images/magic.png");
-map.set(14, "images/mavs.png");
-map.set(15, "images/nets.png");
-map.set(16, "images/nuggets.png");
-map.set(17, "images/pacers.png");
-map.set(18, "images/pelicans.png");
-map.set(19, "images/pistons.png");
-map.set(20, "images/rockets.png");
-map.set(21, "images/suns.png");
-map.set(22, "images/thunder.png");
-map.set(23, "images/timberwolves.png");
-map.set(24, "images/warriors.png");
-map.set(25, "images/bulls.png");
+map.set(1, img_1);
+map.set(2, img_2);
+map.set(3, img_3);
+map.set(4, img_4);
+map.set(5, img_5);
+map.set(6, img_6);
+map.set(7, img_7);
+map.set(8, img_8);
+map.set(9, img_9);
+map.set(10, img_10);
+map.set(11, img_11);
+map.set(12, img_12);
+map.set(13, img_13);
+map.set(14, img_14);
+map.set(15, img_15);
+map.set(16, img_16);
+map.set(17, img_17);
+map.set(18, img_18);
+map.set(19, img_19);
+map.set(20, img_20);
+map.set(21, img_21);
+map.set(22, img_22);
+map.set(23, img_23);
+map.set(24, img_24);
+map.set(25, img_25);
 
 function Square(props){
       const image = map.get(props.value);
-      return (<td><img src={image} width="200" height="200"></img></td>);
+      return (<td><img src={image} width="80" height="80" onClick={() => imageClick()}></img></td>);
     }
+
+const imageClick = () => {
+  console.log('Click');
+}
   
   
 class Board extends React.Component {
@@ -81,7 +111,7 @@ class Board extends React.Component {
     }
 
     renderButton = () => {
-      return <button onClick={this.handleClick}>Shuffle images!</button>
+      return <button id='generate_button' onClick={this.handleClick}>Shuffle images!</button>
     }
 
     renderSquare(i) {
@@ -93,6 +123,14 @@ class Board extends React.Component {
     render() {
         return (
         <div id="board">
+            <table>
+              <tr>
+                <img src={logo} width="200" height="80"></img>
+              </tr>
+            </table>
+            <div>
+              {this.renderButton()}
+            </div>
             <table>
             <tr>
               {this.renderSquare(0)}
@@ -130,9 +168,11 @@ class Board extends React.Component {
               {this.renderSquare(24)}
             </tr>
           </table>
-          <div>
-              {this.renderButton()}
-          </div>
+          <table>
+              <tr>
+                <img src={logo} width="200" height="80"></img>
+              </tr>
+            </table>
         </div>
         );
     }
