@@ -28,7 +28,6 @@ import img_22 from './images/timberwolves.png';
 import img_23 from './images/warriors.png';
 import img_24 from './images/bulls.png';
 import img_25 from './images/76ers.png';
-import logo from './images/logo192.png';
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -77,14 +76,38 @@ map.set(23, img_23);
 map.set(24, img_24);
 map.set(25, img_25);
 
-function Square(props){
-      const image = map.get(props.value);
-      return (<td><img src={image} width="80" height="80" onClick={() => imageClick()}></img></td>);
-    }
+class Square extends React.Component {
+  constructor(props) {
+      super(props);
+      // const image = map.get(props.value);
+      var crossed = false
+      this.state = {
+        crossed: crossed,
+        mark: ''
+      }
 
-const imageClick = () => {
-  console.log('Click');
+  }
+  
+  imageClick = () => {
+    console.log('Click');
+    if (this.state.crossed) {
+      this.setState(
+        {crossed: false, mark: ''}
+      );
+    } else {
+      this.setState(
+        {crossed: true, mark: 'X'},
+      );
+    }
+    
+  }
+
+  render() {
+    return (<td><div class="container"><img src={map.get(this.props.value)} onClick={this.imageClick} width="80" height="80"></img>
+    <div class="overlay">{this.state.mark}</div></div></td>);
+  }
 }
+
   
   
 class Board extends React.Component {
@@ -125,7 +148,7 @@ class Board extends React.Component {
         <div id="board">
             <table>
               <tr>
-                <img src={logo} width="200" height="80"></img>
+                <img src={img_25} width="200" height="80"></img>
               </tr>
             </table>
             <div>
@@ -170,7 +193,7 @@ class Board extends React.Component {
           </table>
           <table>
               <tr>
-                <img src={logo} width="200" height="80"></img>
+                <img src={img_25} width="200" height="80"></img>
               </tr>
             </table>
         </div>
